@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>image Gallery</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/flexboxgrid.css">
+  </head>
+  <body>
+    <header id="main-header">
+          <div class="container">
+            <div class="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
+              <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+                <h1><span class="blue-text">img</span>Gallery</h1>
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                <nav id="navbar">
+                  <ul>
+                    <li class="current"><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+    </header>
+
+    <div class="row-grid">
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
+      <div class="column"></div>
+    </div>
+
+    <button type="button" name="button" onclick="goToTop()" id="topbutton">
+      <img src="images/top.jpg" alt="top">
+    </button>
+
+    <footer id="main-footer">
+          <div class="container">
+            <div class="row center-xs center-sm center-md center-lg">
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <p>Copyright &copy; 2018 imgGallery</p>
+              </div>
+            </div>
+          </div>
+    </footer>
+
+    <script type="text/javascript">
+    //for input imegas
+    var container = document.getElementsByClassName("column");
+    var a=[],b=[],c=[],d=[];
+    for (var i = 0; i <4; i++) {
+      a[i]='images/star'+(i+1)+'.jpg';
+      b[i]='images/nature'+(i+1)+'.jpg';
+      //c[i]='images/website'+(i+1)+'.jpg';
+      //d[i]='images/sky'+(i+1)+'.jpg';
+    }
+    for (var i=0; i<a.length; i++) {
+        container[0].insertAdjacentHTML('beforeend','<a href="'+a[i]+'" target="_blank"><img src="'+a[i]+'" class="image-style" style="width:100%"></a>');
+        container[1].insertAdjacentHTML('beforeend','<a href="'+b[i]+'" target="_blank"><img src="'+b[i]+'" class="image-style" style="width:100%"></a>');
+        container[2].insertAdjacentHTML('beforeend','<a href="'+a[i]+'" target="_blank"><img src="'+a[i]+'" class="image-style" style="width:100%"></a>');
+        container[3].insertAdjacentHTML('beforeend','<a href="'+b[i]+'" target="_blank"><img src="'+b[i]+'" class="image-style" style="width:100%"></a>');
+    }
+    //for top button
+    window.onscroll = function() {
+      scrollFunction()
+    }
+    function scrollFunction() {
+      if (document.body.scrollTop > 10 |document.documentElement.scrollTop > 10) {
+        document.getElementById("topbutton").style.display = "block";
+      }
+      else {
+        document.getElementById("topbutton").style.display = "none";
+      }
+}
+    function goToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop=0;
+    }
+    </script>
+  </body>
+</html>
